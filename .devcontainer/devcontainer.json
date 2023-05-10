@@ -2,6 +2,11 @@
 
 {
 	"name": "${localWorkspaceFolderBasename}",
+	"dockerComposeFile": [
+		"../mtb_compose/docker-compose.yaml",
+		"docker-compose.yaml"
+	],
+	"service": "core",
 	"privileged": true,
 	"remoteUser": "${localEnv:USERNAME}",
 	"dockerFile": "Dockerfile",
@@ -42,7 +47,7 @@
 	},
 	"containerEnv": {
 		"DISPLAY": "unix:${localEnv:DISPLAY}", // for GUI applications
-		"ROS_LOCALHOST_ONLY": "1", // DO NOT publish ROS topics over WIFI
+		"ROS_LOCALHOST_ONLY": "0", // DO NOT publish ROS topics over WIFI
 		"ROS_DOMAIN_ID": "42",
 		"SSH_AUTH_SOCK": "/ssh-agent"
 	},

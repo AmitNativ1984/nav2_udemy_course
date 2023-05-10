@@ -27,7 +27,12 @@ find_package(mentee_messages REQUIRED)
 
 add_executable(mtb_control_node src/mtb_control_node.cpp)
 ament_target_dependencies(mtb_control_node rclcpp std_msgs mentee_messages)
-  
+
+install(
+  DIRECTORY launch config
+  DESTINATION share/${PROJECT_NAME}
+)
+
 install(TARGETS mtb_control_node
   DESTINATION lib/${PROJECT_NAME})
 

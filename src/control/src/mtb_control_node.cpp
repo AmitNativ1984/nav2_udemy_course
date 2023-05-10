@@ -13,9 +13,13 @@ public:
   MtbControlPublisher()
   : Node("mtb_contorol_publisher"), count_(0)
   {
+    this->declare_parameter("num_motors", 8);
+    uint32_t num_motors_value;
+    this->get_parameter("num_motors", num_motors_value);
     publisher_ = this->create_publisher<mentee_messages::msg::MotionCommand>("my_cmd", 10);
     timer_ = this->create_wall_timer(
       500ms, std::bind(&MtbControlPublisher::timer_callback, this));
+    RCLCPP_INFO(this->get_logger(), "Control num motors: %d", num_motors_value);
   }
 
 private:

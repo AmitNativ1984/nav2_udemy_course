@@ -48,7 +48,7 @@
 	"containerEnv": {
 		"DISPLAY": "unix:${localEnv:DISPLAY}", // for GUI applications
 		"ROS_LOCALHOST_ONLY": "0", // DO NOT publish ROS topics over WIFI
-		"ROS_DOMAIN_ID": "42",
+		"ROS_DOMAIN_ID": "${localEnv:ROS_DOMAIN_ID}",
 		"SSH_AUTH_SOCK": "/ssh-agent"
 	},
 	"runArgs": [
